@@ -69,7 +69,7 @@ LOCAL_CFLAGS := $(NL_MY_CFLAGS)
 LOCAL_EXPORT_C_INCLUDES := $(NL_MY_INCLUDES)
 LOCAL_EXPORT_CFLAGS := $(NL_MY_CFLAGS)
 
-include $(BUILD_SHARED_LIBRARY)
+include $(BUILD_STATIC_LIBRARY)
 
 #
 # nl-genl-3
@@ -82,49 +82,16 @@ LOCAL_SRC_FILES := \
 
 #$(info Value of LOCAL_SRC_FILES is '$(LOCAL_SRC_FILES)')
 
-LOCAL_SHARED_LIBRARIES := nl-3
+LOCAL_STATIC_LIBRARIES := nl-3
 
-include $(BUILD_SHARED_LIBRARY)
-
-#
-# nl-nf-3
-#
-include $(CLEAR_VARS)
-
-LOCAL_MODULE := nl-nf-3
-LOCAL_SRC_FILES := \
-	$(call list-all,$(LOCAL_PATH),netfilter/*.c)
-
-#$(info Value of LOCAL_SRC_FILES is '$(LOCAL_SRC_FILES)')
-
-LOCAL_SHARED_LIBRARIES := nl-3
-
-include $(BUILD_SHARED_LIBRARY)
+include $(BUILD_STATIC_LIBRARY)
 
 #
-# nl-route-3
+# iw (using static libs)
 #
-include $(CLEAR_VARS)
-
-LOCAL_MODULE := nl-route-3
-LOCAL_SRC_FILES := \
-	$(call list-all,$(LOCAL_PATH),route/*.c) \
-	$(call list-all,$(LOCAL_PATH),route/cls/*.c) \
-	$(call list-all,$(LOCAL_PATH),route/cls/ematch/*.c) \
-	$(call list-all,$(LOCAL_PATH),route/link/*.c) \
-	$(call list-all,$(LOCAL_PATH),route/qdisc/*.c) \
-	$(call list-all,$(LOCAL_PATH),route/fib_lookup/*.c)
-
-#$(info Value of LOCAL_SRC_FILES is '$(LOCAL_SRC_FILES)')
-
-LOCAL_WHOLE_STATIC_LIBRARIES := system-v-search
-LOCAL_SHARED_LIBRARIES := nl-3
-
-include $(BUILD_SHARED_LIBRARY)
-
 include $(CLEAR_VARS)
 LOCAL_MODULE := iw
 LOCAL_SRC_FILES :=  $(call list-all,$(LOCAL_PATH),iw/*.c)
-LOCAL_SHARED_LIBRARIES := nl-3 nl-genl-3
+LOCAL_STATIC_LIBRARIES := nl-3 nl-genl-3
 include $(BUILD_EXECUTABLE)
 

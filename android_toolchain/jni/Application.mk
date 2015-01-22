@@ -9,7 +9,8 @@ APP_ABI := all
 
 # Target platform level, this defines the included sysroot from Android NDK
 APP_PLATFORM := android-5
+#APP_PLATFORM := android-16
 
 #APP_MODULES := nl-3 nl-genl-3 nl-route-3
-APP_MODULES := nl-3 nl-genl-3 iw
+APP_MODULES := iw
 #APP_MODULES := nl-3 nl-genl-3 nl-nf-3 nl-route-3
