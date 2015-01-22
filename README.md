@@ -8,4 +8,5 @@ cd android\_toolchain
 
 ndk-build
 
-you will get iw , libnl-3.so and libnl-genl-3.so at libs/\<arch\> directory.
+you will get iw binary at libs/\<arch\> directory.
+The binary is compiled with static local libnl3, so it should be able to run on every Android devices.
